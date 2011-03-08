@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.dummies.android.taskreminder" android:versionCode="1"
+	android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="4" />
+	<uses-permission android:name="android.id.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.id.permission.RECEIVE_BOOT_COMPLETE" />
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+		<activity android:name=".ReminderListActivity" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".ReminderEditActivity" android:label="@string/app_name"></activity>
+		<activity android:name=".TaskPreferences" android:label="@string/app_name"></activity>
+	<receiver android:name=".OnAlarmReceiver" />
+	<receiver android:name=".OnBootReceiver" >
+		<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+	</receiver>
+	<service android:name=".ReminderService" />
+	</application>
+</manifest>
